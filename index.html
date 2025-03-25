@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header class="header">
+        <input type="text" name="location" id="input-text" placeholder="Enter location">
+        <button id="searchBtn">Search</button>
+    </header>
+    
+    <main class="main" id="main">
+        <!-- <div class="weatherContainer" style="color:white">
+
+            <h1 id="location"></h1>
+            <h2 id="temperature"></h2>
+            
+            <p id="conditionText"></p>
+            <img id="conditionImage" src="" alt="">
+
+
+        </div> -->
+
+        <!-- index.html -->
+<div class="card-container">
+    <!-- Location Card -->
+    <div class="card location-card" id="location-card">
+        <h2 class="card-title">Location</h2>
+        <div class="card-content">
+            <div class="info-item">
+                <span class="label" >Name:</span>
+                <span class="value" id="Name">Dubai</span>
+            </div>
+            <div class="info-item">
+                <span class="label" >Country:</span>
+                <span class="value" id="country">United Arab Emirates</span>
+            </div>
+            <div class="info-item">
+                <span class="label">Region:</span>
+                <span class="value" id="region">Dubai</span>
+            </div>
+            <div class="info-item">
+                <span class="label">Coordinates:</span>
+                <span class="value" id="coordinates">25.2522° N, 55.28° E</span>
+            </div>
+            <div class="info-item">
+                <span class="label">Local Time:</span>
+                <span class="value" id="time">2025-03-25 12:45</span>
+            </div>
+            <div class="info-item">
+                <span class="label">Timezone:</span>
+                <span class="value" id="timeZone">Asia/Dubai</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Air Quality Card -->
+    <div class="card air-quality-card" id="air-quality-card">
+        <h2 class="card-title">Air Quality</h2>
+        <div class="card-content">
+            <div class="aq-item">
+                <span class="aq-label">CO</span>
+                <span class="aq-value">586.45 μg/m³</span>
+            </div>
+            <div class="aq-item">
+                <span class="aq-label">NO2</span>
+                <span class="aq-value">17.575 μg/m³</span>
+            </div>
+            <div class="aq-item">
+                <span class="aq-label">O3</span>
+                <span class="aq-value">131 μg/m³</span>
+            </div>
+            <div class="aq-item">
+                <span class="aq-label">PM2.5</span>
+                <span class="aq-value">45.51 μg/m³</span>
+            </div>
+            <div class="aq-item">
+                <span class="aq-label">PM10</span>
+                <span class="aq-value">112.48 μg/m³</span>
+            </div>
+            <div class="aq-item">
+                <span class="aq-label">SO2</span>
+                <span class="aq-value">13.875 μg/m³</span>
+            </div>
+            <div class="aq-item">
+                <span class="aq-label">US EPA Index</span>
+                <span class="aq-value">3</span>
+            </div>
+            <div class="aq-item">
+                <span class="aq-label">GB DEFRA Index</span>
+                <span class="aq-value">5</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Weather Condition Card -->
+    <div class="weather-card" id="weather-card">
+        <div class="weather-header">
+            <img src="//cdn.weatherapi.com/weather/64x64/day/122.png" alt="Weather Icon" id="weatherIcon">
+            <div class="condition" id="condition">Overcast</div>
+        </div>
+
+        <div class="temp-main" id="temp-c">
+            32°C <div id="temp-f">(89.6°F)</div>
+        </div>
+
+        <div class="weather-details">
+            <div class="detail-item">
+                <span id="feelsLike">Feels Like</span>
+                37.8°C (100°F)
+            </div>
+            <div class="detail-item">
+                <span id="humidity">Humidity</span>
+                56%
+            </div>
+            <div class="detail-item">
+                <span >Wind</span><span id="wind">39.7 kph (24.7 mph)</span>
+                
+            </div>
+            <div class="detail-item">
+                <span>Gust</span>
+                <span id="gust">39.7 kph (24.7 mph)</span>
+                
+            </div>
+            <div class="detail-item">
+                <span>Pressure</span>
+                <span id="pressure">1007 mb (29.74 in)</span>
+                
+            </div>
+            <div class="detail-item">
+                <span>Visibility</span>
+                <span id="visibility">3 km (1 mile)</span>
+                
+            </div>
+            <div class="detail-item">
+                <span>Dew Point</span>
+                <span id="dew">21.2°C (70.1°F)</span>
+                
+            </div>
+            <div class="detail-item">
+                <span>UV Index</span>
+                <span id="uv">4.6</span>
+                
+            </div>
+        </div>
+
+        <div class="last-updated" id="lastUpdated">
+            Last Updated: 2025-03-25 15:15
+        </div>
+    </div>
+</div>
+    </main>
+
+    <script src="script.js"></script>
+    
+</body>
+</html>
