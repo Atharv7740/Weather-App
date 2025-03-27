@@ -1,31 +1,40 @@
-const apiKey = WEATHER_API_KEY
-console.log(apiKey);
-
-
+const apiKey = "00613c280da34575a0b101301252403";
 
 const searchBtn = document.querySelector("#searchBtn");
 const weatherContainer = document.querySelector("#weatherContainer");
 const conditionText = document.querySelector("#conditionText");
 const conditionImage = document.querySelector("#conditionImage");
-const searchInputbox = document.querySelector("input");
+const searchInputBox = document.querySelector("input");
 
-searchBtn.addEventListener("click", apiHandler);
+// searchBtn.addEventListener("click", apiHandler);
+searchBtn.addEventListener("click",apiHandler);
+
+
 
 async function apiHandler() {
-  const searchedLocation = searchInputbox.value;
+  const searchedLocation = searchInputBox.value;
   console.log("Serach Btn clicked");
-  const response = await fetch(
-    `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${searchedLocation}&aqi=yes`
-  );
-  const jsonData = await response.json();
-  weatherShow(jsonData);
-  locationShow(jsonData);
+  searchInputBox.value="";
+  const url= `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${searchedLocation}&aqi=yes`;
+  const response = await fetch(url);
 
-  const icon = jsonData.current.condition.icon;
-  const text = jsonData.current.condition.text;
+  if(response.status==400){
+    alert("Invalid Location");
+    return null;
+  }else if(response.status==200){
+    const jsonData=await response.json();
 
-  console.log("Api Data", jsonData);
+    weatherShow(jsonData);
+    locationShow(jsonData);
+
+  }
+  else{
+    alert("Something went worng, try again");
+    return null;
+  }
+  
 }
+
 
 const locationShow = (jsonData) => {
   // Location card Element selection
@@ -88,11 +97,13 @@ const weatherShow = (jsonData) => {
   const weatherTextData = jsonData.current.condition.text;
   const temp_C_Data = jsonData.current.temp_c;
   const temp_F_Data = jsonData.current.temp_f;
+  
 
   //show data on ui
   weatherIconElem.setAttribute("src", weatherIconData);
   weatherTextElem.textContent = weatherTextData;
-  temp_C_Elem.textContent = temp_C_Data;
+  temp_C_Elem.textContent = temp_C_Data + "°C";
+  temp_F_Elem.textContent = "("+ temp_F_Data + "°F )";
   //
 
   // show the weather card
